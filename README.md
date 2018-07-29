@@ -1,7 +1,10 @@
 # Spring-Boot-Demo
 This is a small Spring-Boot-Demo project
 
-1 - How to run this application:
+1 - Jira
+https://hdo-projects.atlassian.net/projects/SBD
+
+2 - How to run this application:
 Jump to the root directory of source code which contains pom.xml in Terminal
 Solution 1: Using Eclipse
   1 - Run command: mvn clean eclipse:eclipse
