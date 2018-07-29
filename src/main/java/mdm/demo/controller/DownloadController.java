@@ -21,10 +21,8 @@ import java.net.URISyntaxException;
 @RequestMapping(value = "${download.pattern.url}")
 public class DownloadController {
 
-    @Value("${user-template:user-user-template.xls}")
+    @Value("${user-template:user-template.xls}")
     private final String _TEMPLATE_NAME_FILE = "user-template.xls";
-
-    private final String _USER_FILE = "User";
 
     private File getTemplateFile() throws URISyntaxException {
         return new File(DirectoryUtils.getXLSTemplateDir(), _TEMPLATE_NAME_FILE);
@@ -51,13 +49,6 @@ public class DownloadController {
     @RequestMapping(value = "/user/{num}", produces = "application/vnd.ms-excel")
     public void downloadFile(@PathVariable(value = "num") int num, HttpServletResponse response) throws IOException, Exception {
         try {
-//            String pathFile = DirectoryUtils.getXLSTemplateDir();
-//            String nameFile = String.format("%1$s%2$s%3$d%4$s%5$s", _USER_FILE, StringPoolUtils.UNDERLINE, num, StringPoolUtils.PERIOD, ExtensionFileUtils.XLS_EXTENSION);
-//            File file = new File(pathFile, nameFile);
-//            if (!file.exists()) {
-//                Files.createFile(file.toPath());
-//            }
-//            _LOGGER.info("Can access this file");
             User user = UserUtils.getStaticUserForTest();
             File file = ExcelUtils.writeListValuesToOneRow(UserUtils.getListValues(user), getTemplateFile());
             InputStream inputStream = new FileInputStream(file);
@@ -70,7 +61,6 @@ public class DownloadController {
             throw e;
         }
     }
-
+    
     private final Logger _LOGGER = LoggerFactory.getLogger(DownloadController.class);
-
 }

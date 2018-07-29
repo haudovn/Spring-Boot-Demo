@@ -29,13 +29,13 @@ public final class DirectoryUtils {
 
     public static String getFileTemplateDir() {
         String temp = String.format("%1$s%2$s%3$s", getOutputDir(), File.separator, _FILE_TEMPLATE);
-        _LOGGER.info(temp);
+        _LOGGER.debug(temp);
         return temp;
     }
 
     public static String getXLSTemplateDir() {
         String temp = String.format("%1$s%2$s%3$s", getFileTemplateDir(), File.separator, _XLS);
-        _LOGGER.info(temp);
+        _LOGGER.debug(temp);
         return temp;
     }
 }
