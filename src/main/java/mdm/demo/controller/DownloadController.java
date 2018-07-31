@@ -5,7 +5,6 @@ import mdm.demo.util.*;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,17 +14,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping(value = "${download.pattern.url}")
 public class DownloadController {
 
-    @Value("${user-template:user-template.xls}")
-    private final String _TEMPLATE_NAME_FILE = "user-template.xls";
-
-    private File getTemplateFile() throws URISyntaxException {
-        return new File(DirectoryUtils.getXLSTemplateDir(), _TEMPLATE_NAME_FILE);
+    private File getTemplateFile() {
+        return OutputDirUtils.getUserTemplateFile();
     }
 
     @RequestMapping(value = "template", produces = "application/vnd.ms-excel")
