@@ -99,7 +99,7 @@
 
     <build>
         <!-- this resource was added by default -->
-        <!--<resources>
+<!--        <resources>
             <resource>
                 <directory>${basedir}/src/main/resources</directory>
                 <filtering>true</filtering>
@@ -109,7 +109,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--<executions>
+<!--                <executions>
                     <execution>
                         <goals>
                             <goal>repackage</goal>
@@ -118,7 +118,7 @@
                 </executions>-->
             </plugin>
 
-            <plugin>
+<!--            <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <executions>
                     <execution>
@@ -128,7 +128,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
